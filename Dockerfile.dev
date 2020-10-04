@@ -1,0 +1,13 @@
+FROM node:alpine
+
+EXPOSE 3000
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+# Can be removed when using volume mapping
+COPY . .
+
+CMD ["npm", "start"]
